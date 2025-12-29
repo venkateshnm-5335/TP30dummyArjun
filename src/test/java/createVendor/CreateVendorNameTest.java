@@ -1,11 +1,11 @@
 package createVendor;
 
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import genericutility.ExcelFileUtil;
@@ -45,12 +45,12 @@ public class CreateVendorNameTest {
 
 		//maximize the window
 	//	driver.manage().window().maximize();
-		wdu.maximizeWindow(driver);
+		wLib.maximizeWindow(driver);
 		//enter URl
 		driver.get(URL);
 		//wait for page load
 	//	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		wdu.waitForPageLoad(driver, 10);
+		wLib.waitImplicitly(driver, 10);
 		//step1.Login to application
 		driver.findElement(By.name("user_name")).sendKeys(USERNAME);
 		driver.findElement(By.name("user_password")).sendKeys(PASSWORD);
@@ -90,6 +90,7 @@ public class CreateVendorNameTest {
 		wLib.mouseHover(driver, signoutEle);
 		Thread.sleep(5000);
 		driver.quit();
+		Assert.fail();
 	}
 
 }
